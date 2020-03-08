@@ -1,0 +1,98 @@
+﻿'SpriteSDL.exe' (Win32): Loaded 'E:\UPC\Proyecto\SDL_image_isma_28-2-20\Debug\SpriteSDL.exe'. Symbols loaded.
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntdll.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel32.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\KernelBase.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\apphelp.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'E:\UPC\Proyecto\SDL_image_isma_28-2-20\Game\SDL2.dll'. Module was built without symbols.
+'SpriteSDL.exe' (Win32): Loaded 'E:\UPC\Proyecto\SDL_image_isma_28-2-20\Game\SDL2_image.dll'. Module was built without symbols.
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\vcruntime140d.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbased.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\advapi32.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcrt.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcrt.dll'. 
+'SpriteSDL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\msvcrt.dll'
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\sechost.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\rpcrt4.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\sspicli.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\cryptbase.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\bcryptprimitives.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\gdi32.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\win32u.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\gdi32full.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcp_win.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbase.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\user32.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\imm32.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ole32.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\combase.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\oleaut32.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\setupapi.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\cfgmgr32.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\bcrypt.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\shell32.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\SHCore.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\windows.storage.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\profapi.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\powrprof.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\umpdc.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\shlwapi.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel.appcore.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\cryptsp.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\winmm.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\version.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\winmmbase.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\winmmbase.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\winmmbase.dll'. 
+'SpriteSDL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\winmmbase.dll'
+'SpriteSDL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\winmmbase.dll'
+'SpriteSDL.exe' (Win32): Loaded 'E:\UPC\Proyecto\SDL_image_isma_28-2-20\Game\libpng16-16.dll'. Module was built without symbols.
+'SpriteSDL.exe' (Win32): Loaded 'E:\UPC\Proyecto\SDL_image_isma_28-2-20\Game\zlib1.dll'. Module was built without symbols.
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\uxtheme.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\lskhook.dll'. Module was built without symbols.
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\clbcatq.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\MMDevAPI.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\devobj.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\avrt.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\dinput8.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\InputHost.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\WinTypes.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\CoreUIComponents.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\CoreMessaging.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\propsys.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntmarta.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\hid.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\wintrust.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msasn1.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\crypt32.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\XInput1_4.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msctf.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\TextInputFramework.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\iertutil.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\d3d9.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\dwmapi.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\DXCore.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\nvd3dum.dll'. 
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\psapi.dll'. 
+The thread 0x2020 has exited with code 0 (0x0).
+'SpriteSDL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ResourcePolicyClient.dll'. 
+'SpriteSDL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\ResourcePolicyClient.dll'
+The thread 0x26b8 has exited with code 0 (0x0).
+The thread 0x4218 has exited with code 0 (0x0).
+The thread 0x3f14 has exited with code 0 (0x0).
+The thread 0x4190 has exited with code 0 (0x0).
+'SpriteSDL.exe' (Win32): Unloaded 'E:\UPC\Proyecto\SDL_image_isma_28-2-20\Game\zlib1.dll'
+'SpriteSDL.exe' (Win32): Unloaded 'E:\UPC\Proyecto\SDL_image_isma_28-2-20\Game\libpng16-16.dll'
+The thread 0x314c has exited with code 0 (0x0).
+'SpriteSDL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\XInput1_4.dll'
+'SpriteSDL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\avrt.dll'
+'SpriteSDL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\hid.dll'
+'SpriteSDL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\dinput8.dll'
+The thread 0x9b0 has exited with code 0 (0x0).
+The thread 0x8c4 has exited with code 0 (0x0).
+The thread 0x370c has exited with code 0 (0x0).
+The thread 0x7f0 has exited with code 0 (0x0).
+The thread 0x3460 has exited with code 0 (0x0).
+The thread 0x26c8 has exited with code 0 (0x0).
+The thread 0x2d48 has exited with code 0 (0x0).
+The thread 0x2344 has exited with code 0 (0x0).
+The program '[11960] SpriteSDL.exe' has exited with code 0 (0x0).
