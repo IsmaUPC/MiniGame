@@ -31,10 +31,15 @@ bool Game::Init()
 	//AUDIO
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 
-	music = Mix_LoadMUS("musica.mp3");
+	music = Mix_LoadMUS("Soundtruck.mp3");
 	effect1 = Mix_LoadWAV("laser.wav");
-
+	effect2 = Mix_LoadWAV("fuck.wav");
 	
+	if (effect2 == NULL)
+	{
+		SDL_Log("Unable to create rendering context: %s", SDL_GetError());
+		return false;
+	}
 
 	// Cargar nuestras imagenes despues de crear el renderer
 	IMG_Init(IMG_INIT_PNG);
@@ -81,7 +86,7 @@ void Game::Release()
 	//Sounds
 	Mix_FreeMusic(music);
 	Mix_FreeChunk(effect1);
-
+	Mix_FreeChunk(effect2);
 	Mix_CloseAudio();
 
 	//Clean up all SDL initialized subsystems
@@ -138,6 +143,12 @@ bool Game::Update()
 
 		//sound effect
 		Mix_PlayChannel(-1, effect1, 0);
+		contador++;
+		if (contador == 5)
+		{
+			Mix_PlayChannel(-1, effect2, 0);
+			contador = 0;
+		}
 	}
 
 	//Logic

@@ -47,10 +47,12 @@ private:
 	SDL_Texture* textureShip,*textureBullet, * textureBackGround;
 	
 	Mix_Chunk* effect1 = NULL;
+	Mix_Chunk* effect2 = NULL;
 	Mix_Music* music = NULL;
 
 	Entity Player, Shots[MAX_SHOTS],BackGround[2],Enemy[FILES][COLUMS];
 	int idx_shot;
+	int contador = 0;
 
 	enum KEY_STATE { 
 		KEY_IDLE,
