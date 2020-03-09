@@ -2,9 +2,11 @@
 
 #include "SDL/include/SDL.h"
 #include "SDL_image/include/SDL_image.h"
+#include "SDL2_mixer-2.0.4/include/SDL_mixer.h"
 #pragma comment( lib, "SDL/libx86/SDL2.lib" )
 #pragma comment( lib, "SDL/libx86/SDL2main.lib" )
-#pragma comment( lib, "SDL_image/lib/x86/SDL2_image.lib" )
+#pragma comment( lib, "SDL_image/libx86/SDL2_image.lib" )
+#pragma comment( lib, "SDL2_mixer-2.0.4/lib/x86/SDL2_mixer.lib")
 
 #include "Entity.h"
 
@@ -40,7 +42,8 @@ private:
 	//SDL_Surface* spaceShip = IMG_Load("spaceship2.png");
 	SDL_Texture* textureShip,*textureBullet, * textureBackGround;
 	
-
+	Mix_Chunk* effect1 = NULL;
+	Mix_Music* music = NULL;
 
 	Entity Player, Shots[MAX_SHOTS],BackGround[2];
 	int idx_shot;

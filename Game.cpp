@@ -27,6 +27,15 @@ bool Game::Init()
 		SDL_Log("Unable to create rendering context: %s", SDL_GetError());
 		return false;
 	}
+
+	//AUDIO
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+
+	music = Mix_LoadMUS("musica.mp3");
+	effect1 = Mix_LoadWAV("laser.wav");
+
+	
+
 	// Cargar nuestras imagenes despues de crear el renderer
 	IMG_Init(IMG_INIT_PNG);
 	textureShip = SDL_CreateTextureFromSurface(Renderer, IMG_Load("spaceship2.png"));
@@ -45,6 +54,8 @@ bool Game::Init()
 	BackGround[0].Init(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 1);
 	BackGround[1].Init(0, -1*WINDOW_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, 1);
 
+	//Music Start
+	Mix_PlayMusic(music, -1);//-1 for loop
 
 	return true;
 }
@@ -54,6 +65,13 @@ void Game::Release()
 	SDL_DestroyTexture(textureBullet);
 	SDL_DestroyTexture(textureBackGround);
 	IMG_Quit();
+
+	//Sounds
+	Mix_FreeMusic(music);
+	Mix_FreeChunk(effect1);
+
+	Mix_CloseAudio();
+
 	//Clean up all SDL initialized subsystems
 	SDL_Quit();
 }
@@ -105,6 +123,9 @@ bool Game::Update()
 		Shots[idx_shot].Init(x +(((w / 2) + (w/3))-20), y -5 , 20, 56, 12);
 		idx_shot++;
 		idx_shot %= MAX_SHOTS;
+
+		//sound effect
+		Mix_PlayChannel(-1, effect1, 0);
 	}
 
 	//Logic
