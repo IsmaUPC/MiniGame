@@ -44,12 +44,18 @@ private:
 	SDL_Window *Window;
 	SDL_Renderer *Renderer;
 	//SDL_Surface* spaceShip = IMG_Load("spaceship2.png");
-	SDL_Texture* textureShip,*textureBullet, * textureBackGround;
+	SDL_Texture* textureShip,*textureBullet, * textureBackGround, * textureEnemy, * textureEnemy2;
 	
 	Mix_Chunk* effect1 = NULL;
 	Mix_Chunk* effect2 = NULL;
+	Mix_Chunk* effect3 = NULL;
+	Mix_Chunk* effect4 = NULL;
 	Mix_Music* music = NULL;
+	SDL_Rect rc;
 
+	int spacio = (WINDOW_WIDTH - Tamaño) / COLUMS;
+	int Tamaño = 50;
+	int tiempo = 50;
 	Entity Player, Shots[MAX_SHOTS],BackGround[2],Enemy[FILES][COLUMS];
 	int idx_shot;
 	int contador = 0;

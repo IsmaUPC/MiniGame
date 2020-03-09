@@ -46,6 +46,10 @@ void Entity::Move(int dx, int dy)
 	x += dx * speed;
 	y += dy * speed;
 }
+void Entity::MoveDown()
+{
+	y += 20;
+}
 void Entity::SetY(int _y) {
 	y = _y;
 };

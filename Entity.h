@@ -13,7 +13,7 @@ public:
 	void ShutDown();
 	bool IsAlive();
 	void Move(int dx, int dy);
-
+	void MoveDown();
 private:
 	int x, y;
 	int width, height;

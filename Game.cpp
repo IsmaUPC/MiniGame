@@ -34,18 +34,31 @@ bool Game::Init()
 	music = Mix_LoadMUS("Soundtruck.mp3");
 	effect1 = Mix_LoadWAV("laser.wav");
 	effect2 = Mix_LoadWAV("fuck.wav");
+	effect3 = Mix_LoadWAV("DeadEnemy.wav");
+	effect4 = Mix_LoadWAV("Hitmarker.wav");
 	
 	if (effect2 == NULL)
 	{
 		SDL_Log("Unable to create rendering context: %s", SDL_GetError());
 		return false;
 	}
-
+	if (effect3 == NULL)
+	{
+		SDL_Log("Unable to create rendering context: %s", SDL_GetError());
+		return false;
+	}
+	if (effect4 == NULL)
+	{
+		SDL_Log("Unable to create rendering context: %s", SDL_GetError());
+		return false;
+	}
 	// Cargar nuestras imagenes despues de crear el renderer
 	IMG_Init(IMG_INIT_PNG);
 	textureShip = SDL_CreateTextureFromSurface(Renderer, IMG_Load("spaceship2.png"));
 	textureBullet = SDL_CreateTextureFromSurface(Renderer, IMG_Load("shot.png"));
 	textureBackGround = SDL_CreateTextureFromSurface(Renderer, IMG_Load("space.png"));
+	textureEnemy = SDL_CreateTextureFromSurface(Renderer, IMG_Load("Alien1.png"));
+	textureEnemy2 = SDL_CreateTextureFromSurface(Renderer, IMG_Load("Alien1_2.png"));
 
 	//Initialize keys array
 	for (int i = 0; i < MAX_KEYS; ++i)
@@ -58,17 +71,12 @@ bool Game::Init()
 	BackGround[0].Init(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 1);
 	BackGround[1].Init(0, -1*WINDOW_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, 1);
 
+	for (int j = 0; j < FILES; j++) {
+		for (int i = 0; i < COLUMS; i++) {
 
-	int Tamaño = 70;
-	int spacio = (WINDOW_WIDTH -Tamaño) / COLUMS;
-	
-
-	/*for (int j = 0; j < FILES; j++){
-		for (int i = 0; i < COLUMS; i++){
-
-			Enemy[j][i].Init(20 +((spacio+5) * i), 20 + ((spacio + 5) * j), Tamaño, Tamaño, 3);
+			Enemy[j][i].Init(20 + ((spacio + 5) * i), 20 + ((spacio + 5) * j), 55, 40, 3);
 		}
-	}*/
+	}
 
 
 	//Music Start
@@ -81,12 +89,16 @@ void Game::Release()
 	SDL_DestroyTexture(textureShip);
 	SDL_DestroyTexture(textureBullet);
 	SDL_DestroyTexture(textureBackGround);
+	SDL_DestroyTexture(textureEnemy);
+	SDL_DestroyTexture(textureEnemy2);
 	IMG_Quit();
 
 	//Sounds
 	Mix_FreeMusic(music);
 	Mix_FreeChunk(effect1);
 	Mix_FreeChunk(effect2);
+	Mix_FreeChunk(effect3);
+	Mix_FreeChunk(effect4);
 	Mix_CloseAudio();
 
 	//Clean up all SDL initialized subsystems
@@ -116,8 +128,6 @@ bool Game::Input()
 }
 bool Game::Update()
 {
-
-
 
 	//Read Input
 	if (!Input())	return true; 
@@ -166,7 +176,22 @@ bool Game::Update()
 		BackGround[i].Move(0, 1);
 
 	}
+	
+	for (int j = 0; j < FILES; j++) {
+		for (int i = 0; i < COLUMS; i++) {
 
+
+			if (Enemy[j][i].GetX() > WINDOW_WIDTH)
+			{
+				Enemy[j][i].Move(-1, 0);
+				Enemy[j][i].MoveDown();
+			}
+			else if (Enemy[j][i].GetX() < 0) {
+				Enemy[j][i].Move(-1, 0);
+				Enemy[j][i].MoveDown();
+			}
+		}
+	}
 
 
 	//Shots update
@@ -188,7 +213,6 @@ void Game::Draw()
 	SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 255);
 	//Clear rendering target                 
 	SDL_RenderClear(Renderer);
-	SDL_Rect rc;
 	for (int i = 0; i <= 1; ++i)	{
 		//SDL_SetRenderDrawColor(Renderer, 0, 192, 0, 255);
 		BackGround[i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
@@ -210,15 +234,24 @@ void Game::Draw()
 	
 
 	//Draw Enemy
-	/*
-	SDL_SetRenderDrawColor(Renderer, 0, 192, 0, 255);
+
+	//SDL_SetRenderDrawColor(Renderer, 0, 192, 0, 255);
+	tiempo--;
 	for (int j = 0; j < FILES; j++) {
 		for (int i = 0; i < COLUMS; i++) {
-
-			Enemy[j][i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
-			SDL_RenderFillRect(Renderer, &rc);
+			if (tiempo > 25 && tiempo < 50)
+			{
+				Enemy[j][i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+				SDL_RenderCopy(Renderer, textureEnemy, NULL, &rc);
+			}
+			else
+			{
+				Enemy[j][i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+				SDL_RenderCopy(Renderer, textureEnemy2, NULL, &rc);
+			}
 		}
-	}*/
+	}
+	if (tiempo == 0) tiempo = 50;
 
 
 
