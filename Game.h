@@ -11,14 +11,18 @@
 #include "Entity.h"
 
 
-#define WINDOW_WIDTH	1024
-#define WINDOW_HEIGHT	720
+#define WINDOW_WIDTH	720
+#define WINDOW_HEIGHT	1024
+
 #define PLAYER_HEIGHT	82
 #define PLAYER_WIDTH	104
 
 
 #define MAX_KEYS		256
 #define MAX_SHOTS		32
+
+#define FILES		4
+#define COLUMS		6
 
 
 const int SPRITE_SIZE = 256;
@@ -45,7 +49,7 @@ private:
 	Mix_Chunk* effect1 = NULL;
 	Mix_Music* music = NULL;
 
-	Entity Player, Shots[MAX_SHOTS],BackGround[2];
+	Entity Player, Shots[MAX_SHOTS],BackGround[2],Enemy[FILES][COLUMS];
 	int idx_shot;
 
 	enum KEY_STATE { 
