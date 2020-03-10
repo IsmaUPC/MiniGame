@@ -14,7 +14,7 @@ public:
 	void update(float delta, SDL_Texture* frame);
 	void render(SDL_Renderer* _render, SDL_Texture* frame, int* _tiempo, SDL_Rect _rc);
 	State state;
-	Alien() {}
+	Alien() {};
 	Alien(int _x, int _y, int _w, int _h, int _s) {
 		x = _x;
 		y = _y;
@@ -25,7 +25,7 @@ public:
 		state = LIVE;
 
 	}
-	~Alien() {}
+	~Alien() {};
 
 
 };

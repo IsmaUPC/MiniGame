@@ -349,7 +349,8 @@ void Game::Draw()
 
 	//SDL_SetRenderDrawColor(Renderer, 0, 192, 0, 255);
 	tiempo--;
-	army.render(Renderer, textureEnemy, &tiempo, &rc);
+	army.render(Renderer, textureEnemy, &tiempo, rc);
+
 	for (int j = 0; j < FILES; j++) {
 		for (int i = 0; i < COLUMS; i++) {
 			if (Enemy[j][i].IsAlive()==true)

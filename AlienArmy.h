@@ -18,7 +18,7 @@ public:
 
 	void positionAliens();
 	void move();
-	void render();
+	void render(SDL_Renderer* _render, SDL_Texture* frame, int* _tiempo, SDL_Rect _rc);
 protected:
 
 	bool is_alive;
