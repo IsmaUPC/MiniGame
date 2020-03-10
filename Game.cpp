@@ -193,6 +193,20 @@ bool Game::Update()
 		}
 	}
 
+	for (int i = 0; i <4 ; i++)
+	{
+		for (int j = 0; j < 6; j++)
+		{
+			for (int k = 0; k < 32; k++)
+			{
+				if (Shots[k].GetY() == Enemy[i][j].GetY()-40)
+				{
+					Shots[k].ShutDown();
+					Enemy[i][j].ShutDown();
+				}
+			}
+		}
+	}
 
 	//Shots update
 	for (int i = 0; i < MAX_SHOTS; ++i)
