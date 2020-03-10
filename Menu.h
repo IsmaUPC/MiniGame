@@ -2,10 +2,17 @@
 #include "SDL/include/SDL.h"
 #include "SDL_image/include/SDL_image.h"
 #include "SDL2_mixer-2.0.4/include/SDL_mixer.h"
+
+#include "SDL_TTF/include/SDL_ttf.h"
+
 #pragma comment( lib, "SDL/libx86/SDL2.lib" )
 #pragma comment( lib, "SDL/libx86/SDL2main.lib" )
 #pragma comment( lib, "SDL_image/libx86/SDL2_image.lib" )
 #pragma comment( lib, "SDL2_mixer-2.0.4/lib/x86/SDL2_mixer.lib")
+#pragma comment( lib, "SDL_TTF/lib/x86/SDL2_ttf.lib")
+
+
+
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,7 +56,6 @@ private:
 	SDL_Window* Window;
 	SDL_Renderer* Renderer;
 
-
 	SDL_Texture* TexBTN_Play[2], * TexBTN_Exit[2];
 
 	Mix_Chunk* effect1 = NULL;
@@ -57,8 +63,12 @@ private:
 
 	Entity BackGround, BTN_menu[2];
 
+	//TEXT
+	SDL_Surface* message = NULL;
+	TTF_Font* font = NULL;
+	SDL_Color textColor = { 255, 255, 255 };
+
 	//VARs
-	
 	bool play = true;
 	int opc = 1;
 

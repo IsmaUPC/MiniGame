@@ -31,6 +31,13 @@ bool Menu::Init(){
 	//music = Mix_LoadMUS("Soundtruck.mp3");
 	//effect1 = Mix_LoadWAV("laser.wav");
 
+	//TEXT
+
+	// http://lazyfoo.net/SDL_tutorials/lesson07/index.php
+
+	//Open the font
+	font = TTF_OpenFont("arial.ttf", 28);
+
 	// Cargar nuestras imagenes despues de crear el renderer
 	IMG_Init(IMG_INIT_PNG);
 	TexBTN_Play[0] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("BT_Play_off.png"));
