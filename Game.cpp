@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <math.h>
 
+
 Game::Game() {}
 Game::~Game(){}
 
@@ -85,12 +86,20 @@ bool Game::Init()
 	BackGround[1].Init(0, -1*WINDOW_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, 1);
 
 	//Enemy
-	for (int j = 0; j < FILES; j++) {
-		for (int i = 0; i < COLUMS; i++) {
-
-			Enemy[j][i].Init(20 + ((spacio + 5) * i), 20 + ((spacio + 5) * j), 55, 40, 3);
+	for (int i = 0; i < 5; i++) {  // fila
+		for (int j = 0; j < 11; j++) {  // columna
+			aliens[i] = Alien();
+	
+			//	= (j * 30 + 10, y - i * 12, 55, 40, 3);
 		}
 	}
+	//army.positionAliens();
+	/*for (int j = 0; j < FILES; j++) {
+		for (int i = 0; i < COLUMS; i++) {
+
+			Enemy[j][i].Init(20 + ((distanceAliens + 5) * i), 20 + ((distanceAliens + 5) * j), 55, 40, 3);
+		}
+	}*/
 	
 
 	//Music Start
@@ -217,29 +226,31 @@ bool Game::Update()
 		BackGround[i].Move(0, 1);
 
 	}
-	int vel = 1;
-	for (int j = 0; j <= FILES; j++) {
-		for (int i = 0; i <= COLUMS; i++) {
 
-			
-			if (Enemy[j][i].GetX() <= WINDOW_WIDTH && move==true)
-			{
-				Enemy[j][i].Move(vel, 0);
-				
-			}
-			if (Enemy[j][i].GetX() >= WINDOW_WIDTH)
-			{
-				Enemy[j][i].MoveDown();
-				vel *= -1;
-				//move = false;
-			}
-			if (Enemy[j][i].GetX() <= 0)
-			{
-				Enemy[j][i].MoveDown();
-				move = true;
-			}
-		}
-	}
+	army.move();
+	//int vel = 1;
+	//for (int j = 0; j < FILES; j++) {
+	//	for (int i = 0; i < COLUMS; i++) {
+
+	//		
+	//		if (Enemy[j][i].GetX() <= WINDOW_WIDTH && move==true)
+	//		{
+	//			Enemy[j][i].Move(vel, 0);
+	//			
+	//		}
+	//		if (Enemy[j][i].GetX() >= WINDOW_WIDTH)
+	//		{
+	//			Enemy[j][i].MoveDown();
+	//			vel *= -1;
+	//			//move = false;
+	//		}
+	//		if (Enemy[j][i].GetX() <= 0)
+	//		{
+	//			Enemy[j][i].MoveDown();
+	//			move = true;
+	//		}
+	//	}
+	//}
 
 	for (int j = 0; j <FILES ; j++)
 	{

@@ -11,6 +11,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Entity.h"
+#include "AlienArmy.h"
+
+
 
 
 #define WINDOW_WIDTH	720
@@ -44,8 +47,8 @@ public:
 	SDL_Rect rc;
 	int tiempo = 50;
 	static const int SIZE = 50;
-	static const int spacio = (WINDOW_WIDTH - SIZE) / COLUMS;
-
+	static const int distanceAliens = (WINDOW_WIDTH - SIZE) / COLUMS;
+	static const int W_WIDTH = WINDOW_WIDTH;
 private:
 	SDL_Window *Window;
 	SDL_Renderer *Renderer;
@@ -60,7 +63,11 @@ private:
 	Mix_Chunk* Disparos[7] = { NULL };
 	
 	Entity Player, Shots[MAX_SHOTS], BackGround[2], Enemy[FILES][COLUMS];
-	int idx_shot;
+	
+	Alien aliens[24];
+	AlienArmy army;
+	int idx_shot; 
+	
 	int contador = 0;
 	int vel = 1;
 	bool move = true;

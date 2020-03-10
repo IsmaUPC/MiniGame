@@ -1,30 +1,8 @@
-#include "Entity.h"
 #include "Game.h"
 #include "Assets.h"
+#include "Alien.h"
 
 
-class Alien :public Entity {
-
-	enum State {
-		LIVE, DYING, DEAD
-	};
-
-
-	float stateTime;
-
-	State state;
-public:
-	Alien() {}
-	Alien(int _x, int _y, int _w, int _h, int _s) {
-		x = _x;
-		y = _y;
-		width = _w;
-		height = _h;
-		speed = _s;
-		is_alive = true;
-		state = LIVE;
-
-	}
 
 
 	void Alien::render(SDL_Renderer* _render, SDL_Texture* frame, int* _tiempo, SDL_Rect _rc) {
@@ -43,7 +21,7 @@ public:
 		if (_tiempo == 0)* _tiempo = 50;
 	}
 
-	void update(float delta, SDL_Texture* frame) {
+	void Alien::update(float delta, SDL_Texture* frame) {
 		stateTime += delta;
 		if (state == LIVE) {
 			//	frame = assets.alien.getKeyFrame(stateTime, true);
@@ -59,6 +37,8 @@ public:
 		*/}
 	
 	}
+
+	
 
 	void shoot() {
 
@@ -91,4 +71,5 @@ public:
 		return state == LIVE;
 	}
 	*/
-};
+
+
