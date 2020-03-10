@@ -48,14 +48,14 @@ public:
 private:
 	SDL_Window* Window;
 	SDL_Renderer* Renderer;
-	//SDL_Surface* spaceShip = IMG_Load("spaceship2.png");
-	SDL_Texture* textureShip, * textureBullet, * textureBackGround, * textureEnemy, * textureEnemy2;
+
+
+	SDL_Texture* TexBTN_Play[2], * TexBTN_Exit[2];
 
 	Mix_Chunk* effect1 = NULL;
-
 	Mix_Music* music = NULL;
 
-	Entity PlayerBackGround[2];
+	Entity BackGround, BTN_menu[2];
 
 	//VARs
 	

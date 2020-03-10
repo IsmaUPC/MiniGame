@@ -33,12 +33,26 @@ bool Menu::Init(){
 
 	// Cargar nuestras imagenes despues de crear el renderer
 	IMG_Init(IMG_INIT_PNG);
-
-	//textureShip = SDL_CreateTextureFromSurface(Renderer, IMG_Load("spaceship2.png"));
+	TexBTN_Play[0] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("BT_Play_off.png"));
+	TexBTN_Play[1] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("BT_Play_on.png"));
+	TexBTN_Exit[0] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("BT_Exit_off.png"));
+	TexBTN_Exit[1] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("BT_Exit_on.png"));
 	
 	//Initialize keys array
 	for (int i = 0; i < MAX_KEYS; ++i)
 		keys[i] = KEY_IDLE;
+
+
+	//Init variables
+
+
+	BackGround.Init(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 1);
+
+
+	for (int i = 0; i < 2; i++) {
+		// 0 = play / 1 = exit
+		BTN_menu[i].Init((WINDOW_WIDTH >> 1)- 180, (WINDOW_HEIGHT >> 2) + (i*240), 360, 120, 0);
+	}
 
 
 	//Music Start
@@ -49,7 +63,10 @@ bool Menu::Init(){
 
 void Menu::Release(){
 
-	//SDL_DestroyTexture(textureEnemy2);
+	for (int i = 0; i < 2; i++){
+		SDL_DestroyTexture(TexBTN_Exit[i]);
+		SDL_DestroyTexture(TexBTN_Play[i]);
+	}
 	IMG_Quit();
 
 	//Sounds
@@ -99,7 +116,7 @@ bool Menu::Update(){
 	if (opc < 0){
 		opc = 1;
 	}
-	if (keys[SDL_SCANCODE_SPACE] == KEY_DOWN) {
+	if (keys[SDL_SCANCODE_RETURN] == KEY_DOWN) {
 		switch (opc) {
 		case 1:
 			play = false;
@@ -123,14 +140,12 @@ void Menu::changePlay(bool _play){
 
 	if (play == false){
 		opc = 1;
+
 	}
 	play = _play;
 
 
 }
-
-
-
 
 void Menu::Draw(){
 
@@ -138,6 +153,33 @@ void Menu::Draw(){
 	SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 255);
 	//Clear rendering target                 
 	SDL_RenderClear(Renderer);
+	SDL_Rect rc;
+
+	BackGround.GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+
+
+	switch (opc) {
+	case 1:
+		BTN_menu[0].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+		SDL_RenderCopy(Renderer, TexBTN_Play[1], NULL, &rc);
+
+		BTN_menu[1].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+		SDL_RenderCopy(Renderer, TexBTN_Exit[0], NULL, &rc);
+		break;
+
+	case 0:
+		BTN_menu[0].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+		SDL_RenderCopy(Renderer, TexBTN_Play[0], NULL, &rc);
+
+		BTN_menu[1].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+		SDL_RenderCopy(Renderer, TexBTN_Exit[1], NULL, &rc);
+		break;
+	}
+
+
+
+
+	
 
 	//Update screen
 	SDL_RenderPresent(Renderer);
