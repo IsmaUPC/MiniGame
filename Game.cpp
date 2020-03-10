@@ -244,7 +244,7 @@ bool Game::Update()
 	//		}
 	//	}
 	//}
-
+	/*
 	for (int j = 0; j <FILES ; j++)
 	{
 		for (int i = 0; i < COLUMS; i++)
@@ -260,7 +260,7 @@ bool Game::Update()
 			}
 		}
 	}
-
+	*/
 	//Shots update
 	for (int i = 0; i < MAX_SHOTS; ++i)
 	{
@@ -348,10 +348,10 @@ void Game::Draw()
 	//Draw Enemy
 
 	//SDL_SetRenderDrawColor(Renderer, 0, 192, 0, 255);
-	tiempo--;
+	//tiempo--;
 	army.render(Renderer, textureEnemy, &tiempo, rc);
 
-	for (int j = 0; j < FILES; j++) {
+	/*for (int j = 0; j < FILES; j++) {
 		for (int i = 0; i < COLUMS; i++) {
 			if (Enemy[j][i].IsAlive()==true)
 			{
@@ -370,7 +370,7 @@ void Game::Draw()
 		}
 	}
 	if (tiempo == 0) tiempo = 50;
-
+	*/
 
 
 	//Draw shots

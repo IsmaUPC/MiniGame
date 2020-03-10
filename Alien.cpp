@@ -20,7 +20,7 @@
 
 		if (_tiempo == 0)* _tiempo = 50;
 	}
-
+	
 	void Alien::update(float delta, SDL_Texture* frame) {
 		stateTime += delta;
 		if (state == LIVE) {

@@ -10,17 +10,17 @@
 #include <time.h>
 #include <stdio.h>
 
+static const int SIZE = 50;
+static const int distanceAliens = (WINDOW_WIDTH - SIZE) / COLUMS;
  
 
 void AlienArmy::positionAliens() {
 	int a = 0;
-		for (int i = 0; i < 4; i++) {  // fila
-			for (int j = 0; j < 6; j++) {  // columna
+		for (int i = 0; i < 6; i++) {  // fila
+			for (int j = 0; j < 4; j++) {  // columna
 
-				aliens[a] = Alien(j * 30 + 10, y - i * 12, 55, 40, 3);
+				aliens[a] = Alien(20 + ((distanceAliens + 5) * i), 20 + ((distanceAliens + 5) * j), 55, 40, 3);
 				a++;
-
-				//	= (j * 30 + 10, y - i * 12, 55, 40, 3);
 			}
 		}
 	
@@ -57,9 +57,6 @@ void AlienArmy::move() {
 	for (Alien alien : aliens) {
 		alien.x += speed;
 	}
-
-
-
 }
 		void AlienArmy::render(SDL_Renderer* _render, SDL_Texture* frame, int* _tiempo, SDL_Rect _rc) {
 			for (Alien alien : aliens) {
