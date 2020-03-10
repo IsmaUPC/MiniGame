@@ -217,27 +217,26 @@ bool Game::Update()
 		BackGround[i].Move(0, 1);
 
 	}
-	
-	for (int j = 0; j < FILES; j++) {
-		for (int i = 0; i < COLUMS; i++) {
+	int vel = 1;
+	for (int j = 0; j <= FILES; j++) {
+		for (int i = 0; i <= COLUMS; i++) {
 
 			
-			if (Enemy[j][i].GetX() < WINDOW_WIDTH && move==true)
+			if (Enemy[j][i].GetX() <= WINDOW_WIDTH && move==true)
 			{
-				Enemy[j][i].Move(1, 0);
-
-				if (Enemy[j][i].GetX() == WINDOW_WIDTH)
-				{
-					Enemy[j][i].MoveDown();
-					Enemy[j][i].Move(-1, 0);
-					move == false;
-				}
+				Enemy[j][i].Move(vel, 0);
 				
 			}
-			if (Enemy[j][i].GetX() < 0)
+			if (Enemy[j][i].GetX() >= WINDOW_WIDTH)
 			{
 				Enemy[j][i].MoveDown();
-				move == true;
+				vel *= -1;
+				//move = false;
+			}
+			if (Enemy[j][i].GetX() <= 0)
+			{
+				Enemy[j][i].MoveDown();
+				move = true;
 			}
 		}
 	}

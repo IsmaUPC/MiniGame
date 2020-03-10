@@ -62,7 +62,7 @@ private:
 	Entity Player, Shots[MAX_SHOTS], BackGround[2], Enemy[FILES][COLUMS];
 	int idx_shot;
 	int contador = 0;
-
+	int vel = 1;
 	bool move = true;
 
 	int buclefilter = 0;
