@@ -14,7 +14,7 @@ public:
 	bool IsAlive();
 	void Move(int dx, int dy);
 	void MoveDown();
-private:
+protected:
 	int x, y;
 	int width, height;
 	int speed;

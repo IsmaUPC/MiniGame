@@ -10,6 +10,7 @@ Entity::~Entity()
 }
 void Entity::Init(int posx, int posy, int w, int h, int s) 
 {
+ 
 	x = posx;
 	y = posy;
 	width = w;
