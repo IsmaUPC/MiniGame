@@ -154,9 +154,19 @@ bool Game::Update()
 		//sound effect
 		Mix_PlayChannel(-1, effect1, 0);
 		contador++;
-		if (contador == 5)
+		if (contador == 3)
 		{
 			Mix_PlayChannel(-1, effect2, 0);
+			contador = 0;
+		}
+		if (contador == 5)
+		{
+			Mix_PlayChannel(-1, effect3, 0);
+			contador = 0;
+		}
+		if (contador == 7)
+		{
+			Mix_PlayChannel(-1, effect4, 0);
 			contador = 0;
 		}
 	}
