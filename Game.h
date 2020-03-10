@@ -64,7 +64,6 @@ private:
 	
 	Entity Player, Shots[MAX_SHOTS], BackGround[2], Enemy[FILES][COLUMS];
 	
-	Alien aliens[24];
 	AlienArmy army;
 	int idx_shot; 
 	

@@ -18,6 +18,7 @@ public:
 
 	void positionAliens();
 	void move();
+	void render();
 protected:
 
 	bool is_alive;

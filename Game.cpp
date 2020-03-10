@@ -86,14 +86,7 @@ bool Game::Init()
 	BackGround[1].Init(0, -1*WINDOW_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, 1);
 
 	//Enemy
-	for (int i = 0; i < 5; i++) {  // fila
-		for (int j = 0; j < 11; j++) {  // columna
-			aliens[i] = Alien();
-	
-			//	= (j * 30 + 10, y - i * 12, 55, 40, 3);
-		}
-	}
-	//army.positionAliens();
+	army.positionAliens();
 	/*for (int j = 0; j < FILES; j++) {
 		for (int i = 0; i < COLUMS; i++) {
 
@@ -356,6 +349,7 @@ void Game::Draw()
 
 	//SDL_SetRenderDrawColor(Renderer, 0, 192, 0, 255);
 	tiempo--;
+	army.render(Renderer, textureEnemy, &tiempo, &rc);
 	for (int j = 0; j < FILES; j++) {
 		for (int i = 0; i < COLUMS; i++) {
 			if (Enemy[j][i].IsAlive()==true)
