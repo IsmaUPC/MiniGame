@@ -5,8 +5,10 @@
 
 
 class AlienArmy {
-	int x, y, maxX = 720;
-	float speed = 2;
+
+	int x = 0, y = 0, maxX = 720;
+	float speed = 5;
+	Alien aliens[24];
 
 public:
 	Alien aliens[24];

@@ -35,7 +35,9 @@ AlienArmy::~AlienArmy()
 
 void AlienArmy::move() {
 
+
 	x += x * speed;
+
 
 	if (x > maxX) {
 

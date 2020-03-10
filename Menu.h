@@ -65,12 +65,16 @@ private:
 
 	//TEXT
 	SDL_Surface* message = NULL;
-	TTF_Font* font = NULL;
+	SDL_Texture* texture = NULL;
 	SDL_Color textColor = { 255, 255, 255 };
+	int fontsize = 24;
+	TTF_Font* font;
+
 
 	//VARs
 	bool play = true;
 	int opc = 1;
+	int score = 200;
 
 	enum KEY_STATE {
 		KEY_IDLE,

@@ -37,13 +37,8 @@ bool Game::Init()
 	effect2 = Mix_LoadWAV("fuck.wav");
 	effect3 = Mix_LoadWAV("DeadEnemy.wav");
 	effect4 = Mix_LoadWAV("Hitmarker.wav");
-	Disparos[0]=Mix_LoadWAV("Disparo1.wav");
-	Disparos[1] = Mix_LoadWAV("Disparo2.wav");
-	Disparos[2] = Mix_LoadWAV("Disparo3.wav");
-	Disparos[3] = Mix_LoadWAV("Disparo4.wav");
-	Disparos[4] = Mix_LoadWAV("Disparo5.wav");
-	Disparos[5] = Mix_LoadWAV("Disparo6.wav");
-	Disparos[6] = Mix_LoadWAV("Disparo7.wav");
+	Disparos=Mix_LoadWAV("Star Wars Laser Sound.wav");
+	
 
 	if (effect2 == NULL)
 	{
@@ -121,10 +116,7 @@ void Game::Release()
 	Mix_FreeChunk(effect2);
 	Mix_FreeChunk(effect3);
 	Mix_FreeChunk(effect4);
-	for (int i = 0; i < 7; i++)
-	{
-		Mix_FreeChunk(Disparos[i]);
-	}
+	Mix_FreeChunk(Disparos);
 	Mix_CloseAudio();
 
 	//Clean up all SDL initialized subsystems
@@ -185,7 +177,7 @@ bool Game::Update()
 
 		//sound effect
 		int random = rand() % 7;
-		Mix_PlayChannel(-1, Disparos[random], 0);
+		Mix_PlayChannel(-1, Disparos, 0);
 		contador++;
 		if (contador == 3)
 		{
@@ -270,7 +262,7 @@ bool Game::Update()
 			if (Shots[i].GetY() <0)	Shots[i].ShutDown();
 		}
 	}
-		
+
 	return false;
 }
 void Game::Draw()
