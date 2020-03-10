@@ -40,6 +40,7 @@ public:
 
 	bool Init();
 	void Release();
+	bool rectCollision(SDL_Rect* ball, SDL_Rect* pala);
 	
 	bool Input();
 	bool Update();

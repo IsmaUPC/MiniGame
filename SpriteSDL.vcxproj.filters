@@ -30,9 +30,6 @@
     <ClCompile Include="Alien.cpp">
       <Filter>Source Files\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Assets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AlienArmy.cpp">
       <Filter>Source Files\Enemy</Filter>
     </ClCompile>
@@ -45,9 +42,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Assets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AlienArmy.h">

@@ -67,7 +67,6 @@
   <ItemGroup>
     <ClCompile Include="Alien.cpp" />
     <ClCompile Include="AlienArmy.cpp" />
-    <ClCompile Include="Assets.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -76,7 +75,6 @@
   <ItemGroup>
     <ClInclude Include="Alien.h" />
     <ClInclude Include="AlienArmy.h" />
-    <ClInclude Include="Assets.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Menu.h" />

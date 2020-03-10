@@ -35,7 +35,7 @@ AlienArmy::~AlienArmy()
 
 void AlienArmy::move() {
 
-	x += speed;
+	x += x * speed;
 
 	if (x > maxX) {
 
@@ -54,9 +54,11 @@ void AlienArmy::move() {
 		speed *= -1;
 
 	}
-	for (Alien alien : aliens) {
-		alien.x += speed;
-	}
+    for (Alien alien : aliens) {
+        alien.x += speed;
+        alien.Move(speed,0);
+
+    }
 }
 		void AlienArmy::render(SDL_Renderer* _render, SDL_Texture* frame, int* _tiempo, SDL_Rect _rc) {
 			for (Alien alien : aliens) {

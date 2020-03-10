@@ -5,11 +5,11 @@
 
 
 class AlienArmy {
-	int x = 0, y = 0, maxX = 720;
-	float speed = 0;
-	Alien aliens[24];
+	int x, y, maxX = 720;
+	float speed = 2;
 
 public:
+	Alien aliens[24];
 	AlienArmy() {
 
 		positionAliens();

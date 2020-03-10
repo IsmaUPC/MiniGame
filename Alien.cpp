@@ -7,42 +7,43 @@
 
 	void Alien::render(SDL_Renderer* _render, SDL_Texture* frame, int* _tiempo, SDL_Rect _rc) {
 		_tiempo--;
+		
 
-
-		if (*_tiempo > 25 && *_tiempo < 50) {
+	//	if (*_tiempo > 25 && *_tiempo < 50) {
 			GetRect(&_rc.x, &_rc.y, &_rc.w, &_rc.h);
 			SDL_RenderCopy(_render, frame, NULL, &_rc);
-		}
-		else {
-			GetRect(&_rc.x, &_rc.y, &_rc.w, &_rc.h);
-			SDL_RenderCopy(_render, frame, NULL, &_rc);
-		}
+		//}
+		//else {
+		//	GetRect(&_rc.x, &_rc.y, &_rc.w, &_rc.h);
+		//	SDL_RenderCopy(_render, frame, NULL, &_rc);
+		//}
 
 		if (_tiempo == 0)* _tiempo = 50;
 	}
 	
+	void Alien::Move(int dx, int dy)
+	{
+		x += dx * speed;
+		y += dy * speed;
+	}
 	void Alien::update(float delta, SDL_Texture* frame) {
 		stateTime += delta;
 		if (state == LIVE) {
-			//	frame = assets.alien.getKeyFrame(stateTime, true);
+			
 		}
 		else if (state == DYING) {
-			//	frame = assets.aliendie.getKeyFrame(stateTime, false);
+			
 		}
 
-		if (state == DYING) {
-			/*	if (assets.aliendie.isAnimationFinished(stateTime)) {       Saber hacer animaciones :D
-				state = DEAD;
+		if (state == DEAD) {
 			
-		*/}
+			
+		}
 	
 	}
 
 	
 
-	void shoot() {
-
-	}
 	/*
 	 void kill(Ship ship) {
 		state = State.DYING;

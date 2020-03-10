@@ -340,10 +340,10 @@ void Game::Draw()
 	//SDL_SetRenderDrawColor(Renderer, 0, 192, 0, 255);
 	Player.GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
 	//El primer null es la parte de textura que coges, el segundo parametro es para el rectangulo de la pantalla
-	SDL_RenderCopy(Renderer, textureShip , NULL,&rc);
+	SDL_RenderCopy(Renderer, textureShip, NULL, &rc);
 
 	//SDL_RenderFillRect(Renderer, &rc);
-	
+
 
 	//Draw Enemy
 
@@ -366,26 +366,59 @@ void Game::Draw()
 					SDL_RenderCopy(Renderer, textureEnemy2, NULL, &rc);
 				}
 			}
-			
+
 		}
 	}
 	if (tiempo == 0) tiempo = 50;
 	*/
+	SDL_Rect rcS;
+	for (Entity shoot : Shots) {
+		shoot.GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
 
+
+		for (Alien alien : army.aliens) {
+			army.aliens->GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+
+			if (alien.IsAlive()) {
+				if (rectCollision(&rc, &rcS)) {
+					alien.ShutDown();
+					//alien.DEAD;
+					shoot.ShutDown();
+				}
+
+			}
+		}
+	};
 
 	//Draw shots
 	SDL_SetRenderDrawColor(Renderer, 192, 0, 0, 255);
 	for (int i = 0; i < MAX_SHOTS; ++i)
 	{
-		if (Shots[i].IsAlive()==true)
+		if (Shots[i].IsAlive() == true)
 		{
 			Shots[i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
 			SDL_RenderCopy(Renderer, textureBullet, NULL, &rc);
 			//SDL_RenderFillRect(Renderer, &rc);
 		}
 	}
-	//Update screen
-	SDL_RenderPresent(Renderer);
+	
 
-	SDL_Delay(10);	// 1000/10 = 100 fps max
+
+		//Update screen
+		SDL_RenderPresent(Renderer);
+
+		SDL_Delay(10);	// 1000/10 = 100 fps max
+	
 }
+	bool Game::rectCollision(SDL_Rect* ball, SDL_Rect* pala) {
+
+		if (ball->x > pala->x + pala->w || ball->x + ball->w < pala->x
+			|| ball->y > pala->y + pala->h || ball->y + ball->h < pala->y) {
+
+			return false;
+		}
+		else {
+			return true;
+		}
+
+	};
