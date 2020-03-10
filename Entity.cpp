@@ -48,7 +48,7 @@ void Entity::Move(int dx, int dy)
 }
 void Entity::MoveDown()
 {
-	y += 20;
+	y += 10;
 }
 void Entity::SetY(int _y) {
 	y = _y;
