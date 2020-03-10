@@ -63,7 +63,13 @@ bool Game::Init()
 	IMG_Init(IMG_INIT_PNG);
 	textureShip = SDL_CreateTextureFromSurface(Renderer, IMG_Load("spaceship2.png"));
 	textureBullet = SDL_CreateTextureFromSurface(Renderer, IMG_Load("shot.png"));
-	textureBackGround = SDL_CreateTextureFromSurface(Renderer, IMG_Load("space.png"));
+	textureBackGround[0] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("space.png"));
+	textureBackGround[1] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("space1.png"));
+	textureBackGround[2] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("space2.png"));
+	textureBackGround[3] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("space3.png"));
+	textureBackGround[4] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("space4.png"));
+	textureBackGround[5] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("space5.png"));
+	textureBackGround[6] = SDL_CreateTextureFromSurface(Renderer, IMG_Load("space6.png"));
 	textureEnemy = SDL_CreateTextureFromSurface(Renderer, IMG_Load("Alien1.png"));
 	textureEnemy2 = SDL_CreateTextureFromSurface(Renderer, IMG_Load("Alien1_2.png"));
 
@@ -95,7 +101,13 @@ void Game::Release()
 {
 	SDL_DestroyTexture(textureShip);
 	SDL_DestroyTexture(textureBullet);
-	SDL_DestroyTexture(textureBackGround);
+	SDL_DestroyTexture(textureBackGround[0]);
+	SDL_DestroyTexture(textureBackGround[1]);
+	SDL_DestroyTexture(textureBackGround[2]);
+	SDL_DestroyTexture(textureBackGround[3]);
+	SDL_DestroyTexture(textureBackGround[4]);
+	SDL_DestroyTexture(textureBackGround[5]);
+	SDL_DestroyTexture(textureBackGround[6]);
 	SDL_DestroyTexture(textureEnemy);
 	SDL_DestroyTexture(textureEnemy2);
 	IMG_Quit();
@@ -161,6 +173,12 @@ bool Game::Update()
 		Shots[idx_shot].Init(x +(((w / 2) + (w/3))-20), y -5 , 20, 56, 12);
 		idx_shot++;
 		idx_shot %= MAX_SHOTS;
+		//Bucle de Cambio de fondo
+		buclefilter++;
+		if (buclefilter == 6) {
+			score += buclefilter;
+			buclefilter = 0;
+		}
 
 		//sound effect
 		int random = rand() % 7;
@@ -249,13 +267,58 @@ void Game::Draw()
 	SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 255);
 	//Clear rendering target                 
 	SDL_RenderClear(Renderer);
-	for (int i = 0; i <= 1; ++i)	{
+	SDL_Rect rc;
+	for (int i = 0; i <= 1; ++i) {
 		//SDL_SetRenderDrawColor(Renderer, 0, 192, 0, 255);
 		BackGround[i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
 		//El primer null es la parte de textura que coges, el segundo parametro es para el rectangulo de la pantalla
-		SDL_RenderCopy(Renderer, textureBackGround, NULL, &rc);
+		/*switch(buclefilter)
+		{
+		case 1:
+			SDL_RenderCopy(Renderer, textureBackGround[1], NULL, &rc);
+		case 2:
+			SDL_RenderCopy(Renderer, textureBackGround[2], NULL, &rc);
+		case 3:
+			SDL_RenderCopy(Renderer, textureBackGround[3], NULL, &rc);
+		case 4:
+			SDL_RenderCopy(Renderer, textureBackGround[4], NULL, &rc);
+		case 5:
+			SDL_RenderCopy(Renderer, textureBackGround[5], NULL, &rc);
+		case 6:
+			SDL_RenderCopy(Renderer, textureBackGround[6], NULL, &rc);
+		default:
+			SDL_RenderCopy(Renderer, textureBackGround[0], NULL, &rc);
 
+		}*/
+
+		if (buclefilter == 0) {
+			SDL_RenderCopy(Renderer, textureBackGround[0], NULL, &rc);
+		}
+		else if (buclefilter == 1) {
+			SDL_RenderCopy(Renderer, textureBackGround[1], NULL, &rc);
+		}
+		else if (buclefilter == 2) {
+			SDL_RenderCopy(Renderer, textureBackGround[2], NULL, &rc);
+		}
+		else if (buclefilter == 3) {
+			SDL_RenderCopy(Renderer, textureBackGround[3], NULL, &rc);
+		}
+		else if (buclefilter == 4) {
+			SDL_RenderCopy(Renderer, textureBackGround[4], NULL, &rc);
+		}
+		else if (buclefilter == 5) {
+			SDL_RenderCopy(Renderer, textureBackGround[5], NULL, &rc);
+		}
+		else if (buclefilter == 6) {
+			SDL_RenderCopy(Renderer, textureBackGround[6], NULL, &rc);
+		}
 	}
+
+
+	/*if (buclefilter > 5) {
+		SDL_RenderCopy(Renderer, textureBackGround[rand() % 7], NULL, &rc);
+		buclefilter = 0;
+	}*/
 
 
 

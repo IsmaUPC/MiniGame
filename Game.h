@@ -50,7 +50,7 @@ private:
 	SDL_Window *Window;
 	SDL_Renderer *Renderer;
 	//SDL_Surface* spaceShip = IMG_Load("spaceship2.png");
-	SDL_Texture* textureShip,*textureBullet, * textureBackGround, * textureEnemy, * textureEnemy2;
+	SDL_Texture* textureShip,*textureBullet, * textureBackGround[7], * textureEnemy, * textureEnemy2;
 	
 	Mix_Chunk* effect1 = NULL;
 	Mix_Chunk* effect2 = NULL;
@@ -62,6 +62,9 @@ private:
 	Entity Player, Shots[MAX_SHOTS],BackGround[2],Enemy[FILES][COLUMS];
 	int idx_shot;
 	int contador = 0;
+	int buclefilter = 0;
+	int score = 0;
+	int r = 0, g = 0, b = 0;
 
 	enum KEY_STATE { 
 		KEY_IDLE,
