@@ -78,13 +78,14 @@ bool Game::Init()
 	BackGround[0].Init(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 1);
 	BackGround[1].Init(0, -1*WINDOW_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, 1);
 
+	//Enemy
 	for (int j = 0; j < FILES; j++) {
 		for (int i = 0; i < COLUMS; i++) {
 
 			Enemy[j][i].Init(20 + ((spacio + 5) * i), 20 + ((spacio + 5) * j), 55, 40, 3);
 		}
 	}
-
+	
 
 	//Music Start
 	Mix_PlayMusic(music, -1);//-1 for loop
@@ -202,29 +203,38 @@ bool Game::Update()
 	for (int j = 0; j < FILES; j++) {
 		for (int i = 0; i < COLUMS; i++) {
 
-
-			if (Enemy[j][i].GetX() > WINDOW_WIDTH)
+			
+			if (Enemy[j][i].GetX() < WINDOW_WIDTH && move==true)
 			{
-				Enemy[j][i].Move(-1, 0);
-				Enemy[j][i].MoveDown();
+				Enemy[j][i].Move(1, 0);
+
+				if (Enemy[j][i].GetX() == WINDOW_WIDTH)
+				{
+					Enemy[j][i].MoveDown();
+					Enemy[j][i].Move(-1, 0);
+					move == false;
+				}
+				
 			}
-			else if (Enemy[j][i].GetX() < 0) {
-				Enemy[j][i].Move(-1, 0);
+			if (Enemy[j][i].GetX() < 0)
+			{
 				Enemy[j][i].MoveDown();
+				move == true;
 			}
 		}
 	}
 
-	for (int i = 0; i <4 ; i++)
+	for (int j = 0; j <FILES ; j++)
 	{
-		for (int j = 0; j < 6; j++)
+		for (int i = 0; i < COLUMS; i++)
 		{
-			for (int k = 0; k < 32; k++)
+			for (int k = 0; k < MAX_SHOTS; k++)
 			{
-				if (Shots[k].GetY() == Enemy[i][j].GetY()-40)
+				if (Shots[k].GetY() == Enemy[j][i].GetY() + 40)
 				{
 					Shots[k].ShutDown();
-					Enemy[i][j].ShutDown();
+					Enemy[j][i].ShutDown(); 
+					Enemy[j][i].ShutDown();
 				}
 			}
 		}
@@ -236,7 +246,7 @@ bool Game::Update()
 		if (Shots[i].IsAlive())
 		{
 			Shots[i].Move(0, -1);
-			if (Shots[i].GetX() > WINDOW_WIDTH)	Shots[i].ShutDown();
+			if (Shots[i].GetY() <0)	Shots[i].ShutDown();
 		}
 	}
 		
@@ -275,16 +285,20 @@ void Game::Draw()
 	tiempo--;
 	for (int j = 0; j < FILES; j++) {
 		for (int i = 0; i < COLUMS; i++) {
-			if (tiempo > 25 && tiempo < 50)
+			if (Enemy[j][i].IsAlive()==true)
 			{
-				Enemy[j][i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
-				SDL_RenderCopy(Renderer, textureEnemy, NULL, &rc);
+				if (tiempo > 25 && tiempo < 50)
+				{
+					Enemy[j][i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+					SDL_RenderCopy(Renderer, textureEnemy, NULL, &rc);
+				}
+				else
+				{
+					Enemy[j][i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+					SDL_RenderCopy(Renderer, textureEnemy2, NULL, &rc);
+				}
 			}
-			else
-			{
-				Enemy[j][i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
-				SDL_RenderCopy(Renderer, textureEnemy2, NULL, &rc);
-			}
+			
 		}
 	}
 	if (tiempo == 0) tiempo = 50;
@@ -295,7 +309,7 @@ void Game::Draw()
 	SDL_SetRenderDrawColor(Renderer, 192, 0, 0, 255);
 	for (int i = 0; i < MAX_SHOTS; ++i)
 	{
-		if (Shots[i].IsAlive())
+		if (Shots[i].IsAlive()==true)
 		{
 			Shots[i].GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
 			SDL_RenderCopy(Renderer, textureBullet, NULL, &rc);

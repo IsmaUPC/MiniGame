@@ -59,10 +59,10 @@ private:
 	Mix_Music* music = NULL;
 	Mix_Chunk* Disparos[7] = { NULL };
 	
-	Entity Player, Shots[MAX_SHOTS],BackGround[2],Enemy[FILES][COLUMS];
+	Entity Player, Shots[MAX_SHOTS], BackGround[2], Enemy[FILES][COLUMS];
 	int idx_shot;
 	int contador = 0;
-
+	bool move = true;
 	enum KEY_STATE { 
 		KEY_IDLE,
 		KEY_DOWN,
