@@ -33,10 +33,9 @@ bool Menu::Init(){
 
 	//TEXT
 
-	// http://lazyfoo.net/SDL_tutorials/lesson07/index.php
-
 	//Open the font
-	font = TTF_OpenFont("arial.ttf", 28);
+	TTF_Init();
+	font = TTF_OpenFont("arial.ttf", fontsize);
 
 	// Cargar nuestras imagenes despues de crear el renderer
 	IMG_Init(IMG_INIT_PNG);
@@ -51,7 +50,6 @@ bool Menu::Init(){
 
 
 	//Init variables
-
 
 	BackGround.Init(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 1);
 
@@ -80,6 +78,18 @@ void Menu::Release(){
 	//Mix_FreeMusic(music);
 	//Mix_FreeChunk(effect1);
 	Mix_CloseAudio();
+
+	//TEXT
+	SDL_FreeSurface(message);
+	SDL_DestroyTexture(texture);
+
+
+	//Close the font that was used
+	TTF_CloseFont(font);
+
+	//Quit SDL_ttf
+	TTF_Quit();
+
 
 	//Clean up all SDL initialized subsystems
 	SDL_Quit();
@@ -116,7 +126,10 @@ bool Menu::Update(){
 	//int fx = 0, fy = 0;
 	if ((keys[SDL_SCANCODE_UP] == KEY_DOWN || keys[SDL_SCANCODE_W] == KEY_DOWN) )	opc++;
 	if ((keys[SDL_SCANCODE_DOWN] == KEY_DOWN || keys[SDL_SCANCODE_S] == KEY_DOWN) ) opc--;
-
+	if (keys[SDL_SCANCODE_SPACE] == KEY_DOWN)
+	{
+		score++;
+	}
 	if (opc > 1){
 		opc = 0;
 	}
@@ -183,9 +196,19 @@ void Menu::Draw(){
 		break;
 	}
 
+	//TEXT
 
+	
+	
+	message = TTF_RenderText_Solid(font,"Aqui escribimos el mensaje", textColor);
+	texture = SDL_CreateTextureFromSurface(Renderer, message);
 
-
+	int texW = 0;
+	int texH = 0;
+	SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
+	SDL_Rect dstrect = { (WINDOW_WIDTH >> 1 )/2, (WINDOW_HEIGHT >> 1) - fontsize*2, texW, texH };
+	SDL_RenderCopy(Renderer, texture, NULL, &dstrect);
+	
 	
 
 	//Update screen
