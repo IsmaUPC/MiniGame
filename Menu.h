@@ -1,4 +1,3 @@
-#pragma once
 
 #include "SDL/include/SDL.h"
 #include "SDL_image/include/SDL_image.h"
@@ -10,6 +9,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "Entity.h"
 
 
@@ -27,54 +27,46 @@
 #define COLUMS		6
 
 
-const int SPRITE_SIZE = 256;
+//const int SPRITE_SIZE = 256;
 
-class Game
+class Menu
 {
 public:
-	Game();
-	~Game();
+	Menu();
+	~Menu();
 
 	bool Init();
 	void Release();
-	
+
 	bool Input();
 	bool Update();
+	bool startGame();
+	void changePlay(bool _play);
 	void Draw();
 	SDL_Rect rc;
-	int tiempo = 50;
-	static const int SIZE = 50;
-	static const int spacio = (WINDOW_WIDTH - SIZE) / COLUMS;
 
 private:
-	SDL_Window *Window;
-	SDL_Renderer *Renderer;
+	SDL_Window* Window;
+	SDL_Renderer* Renderer;
 	//SDL_Surface* spaceShip = IMG_Load("spaceship2.png");
-	SDL_Texture* textureShip,*textureBullet, * textureBackGround[7], * textureEnemy, * textureEnemy2;
-	
+	SDL_Texture* textureShip, * textureBullet, * textureBackGround, * textureEnemy, * textureEnemy2;
+
 	Mix_Chunk* effect1 = NULL;
-	Mix_Chunk* effect2 = NULL;
-	Mix_Chunk* effect3 = NULL;
-	Mix_Chunk* effect4 = NULL;
+
 	Mix_Music* music = NULL;
-	Mix_Chunk* Disparos[7] = { NULL };
+
+	Entity PlayerBackGround[2];
+
+	//VARs
 	
-	Entity Player, Shots[MAX_SHOTS], BackGround[2], Enemy[FILES][COLUMS];
-	int idx_shot;
-	int contador = 0;
+	bool play = true;
+	int opc = 1;
 
-	bool move = true;
-
-	int buclefilter = 0;
-	int score = 0;
-	int r = 0, g = 0, b = 0;
-
-
-	enum KEY_STATE { 
+	enum KEY_STATE {
 		KEY_IDLE,
 		KEY_DOWN,
 		KEY_REPEAT,
-		KEY_UP	
+		KEY_UP
 	};
-	KEY_STATE keys[MAX_KEYS]; 
+	KEY_STATE keys[MAX_KEYS];
 };
