@@ -8,6 +8,8 @@
 #pragma comment( lib, "SDL_image/libx86/SDL2_image.lib" )
 #pragma comment( lib, "SDL2_mixer-2.0.4/lib/x86/SDL2_mixer.lib")
 #include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "Entity.h"
 
 
@@ -55,7 +57,8 @@ private:
 	Mix_Chunk* effect3 = NULL;
 	Mix_Chunk* effect4 = NULL;
 	Mix_Music* music = NULL;
-
+	Mix_Chunk* Disparos[7] = { NULL };
+	
 	Entity Player, Shots[MAX_SHOTS],BackGround[2],Enemy[FILES][COLUMS];
 	int idx_shot;
 	int contador = 0;
