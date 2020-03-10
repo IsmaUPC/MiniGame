@@ -262,7 +262,7 @@ bool Game::Update()
 			if (Shots[i].GetY() <0)	Shots[i].ShutDown();
 		}
 	}
-		
+
 	return false;
 }
 void Game::Draw()
