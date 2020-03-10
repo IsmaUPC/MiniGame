@@ -60,7 +60,7 @@ private:
 	Mix_Chunk* effect3 = NULL;
 	Mix_Chunk* effect4 = NULL;
 	Mix_Music* music = NULL;
-	Mix_Chunk* Disparos[7] = { NULL };
+	Mix_Chunk* Disparos = { NULL };
 	
 	Entity Player, Shots[MAX_SHOTS], BackGround[2], Enemy[FILES][COLUMS];
 	
