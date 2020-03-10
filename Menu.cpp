@@ -200,7 +200,7 @@ void Menu::Draw(){
 
 	
 	
-	message = TTF_RenderText_Solid(font,"Aqui escribimos el mensaje", textColor);
+	message = TTF_RenderText_Solid(font," ", textColor);
 	texture = SDL_CreateTextureFromSurface(Renderer, message);
 
 	int texW = 0;

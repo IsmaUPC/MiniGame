@@ -196,26 +196,6 @@ bool Game::Update()
 		}
 	}
 
-
-	SDL_Rect rcS;
-	for (Entity shoot : Shots) {
-		shoot.GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
-
-
-		for (Alien alien : army.aliens) {
-			army.aliens->GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
-
-			if (alien.IsAlive()) {
-				if (rectCollision(&rc, &rcS)) {
-					alien.ShutDown();
-					//alien.DEAD;
-					shoot.ShutDown();
-				}
-
-			}
-		}
-	};
-
 	//Logic
 	//Player update
 	Player.Move(fx, fy);
@@ -383,7 +363,24 @@ void Game::Draw()
 	}
 	if (tiempo == 0) tiempo = 50;
 	*/
-	
+	SDL_Rect rcS;
+	for (Entity shoot : Shots) {
+		shoot.GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+
+
+		for (Alien alien : army.aliens) {
+			army.aliens->GetRect(&rc.x, &rc.y, &rc.w, &rc.h);
+
+			if (alien.IsAlive()) {
+				if (rectCollision(&rc, &rcS)) {
+					alien.ShutDown();
+					//alien.DEAD;
+					shoot.ShutDown();
+				}
+
+			}
+		}
+	};
 
 	//Draw shots
 	SDL_SetRenderDrawColor(Renderer, 192, 0, 0, 255);
