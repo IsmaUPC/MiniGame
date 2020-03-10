@@ -7,7 +7,7 @@
 #pragma comment( lib, "SDL/libx86/SDL2main.lib" )
 #pragma comment( lib, "SDL_image/libx86/SDL2_image.lib" )
 #pragma comment( lib, "SDL2_mixer-2.0.4/lib/x86/SDL2_mixer.lib")
-
+#include <time.h>
 #include "Entity.h"
 
 
@@ -39,6 +39,10 @@ public:
 	bool Input();
 	bool Update();
 	void Draw();
+	SDL_Rect rc;
+	int tiempo = 50;
+	static const int SIZE = 50;
+	static const int spacio = (WINDOW_WIDTH - SIZE) / COLUMS;
 
 private:
 	SDL_Window *Window;
@@ -51,11 +55,7 @@ private:
 	Mix_Chunk* effect3 = NULL;
 	Mix_Chunk* effect4 = NULL;
 	Mix_Music* music = NULL;
-	SDL_Rect rc;
 
-	int spacio = (WINDOW_WIDTH - Tamaño) / COLUMS;
-	int Tamaño = 50;
-	int tiempo = 50;
 	Entity Player, Shots[MAX_SHOTS],BackGround[2],Enemy[FILES][COLUMS];
 	int idx_shot;
 	int contador = 0;
