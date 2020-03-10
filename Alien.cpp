@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "Assets.h"
 #include "Alien.h"
 
 

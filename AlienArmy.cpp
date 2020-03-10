@@ -1,7 +1,7 @@
 
 #include "Entity.h"
 #include "Game.h"
-#include "Assets.h"
+
 
 #include "Alien.h"
 #include "AlienArmy.h"
@@ -64,7 +64,7 @@ void AlienArmy::move() {
 }
 		void AlienArmy::render(SDL_Renderer* _render, SDL_Texture* frame, int* _tiempo, SDL_Rect _rc) {
 			for (Alien alien : aliens) {
-				if (alien.state == alien.LIVE) {
+				if (alien.IsAlive()) {
 					alien.render( _render, frame, _tiempo, _rc);
 
 				}
