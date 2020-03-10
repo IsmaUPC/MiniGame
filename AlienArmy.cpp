@@ -163,5 +163,4 @@ class AlienArmy {
     //        shoots.removeValue(shoot, true);
     //    }
     //}
-
-}
+};
