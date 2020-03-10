@@ -34,9 +34,9 @@ AlienArmy::~AlienArmy()
 
 
 void AlienArmy::move() {
-
+	
 	x += speed;
-
+	
 	if (x > maxX) {
 
 		for (Alien alien : aliens) {
